@@ -20,7 +20,7 @@ function draw(){
   me.moveMe();
 
   if (frameCount % 25 == 0) {
-      let  b = new Ball(width, random(0,height), -3);
+      let  b = new Ball(width, random(0,height), -3, random(-2,2));
       balls.push(b);
       console.log(balls); //print the balls array to the console
     }
@@ -77,10 +77,11 @@ class Avatar {
 class Ball {
 
 	//every ball needs an x value, a y value, and a speed
-	constructor(x,y, speed){
+	constructor(x,y, speed, yspeed){
 		this.x = x;
     this.y = y;
     this.speed = speed;
+    this.yspeed = yspeed;
 	}
 
 	// draw a ball on the screen at x,y
@@ -94,7 +95,7 @@ class Ball {
 	//update the location of the ball, so it moves across the screen
 	moveBall(){
 		this.x = this.x+ this.speed;
-		this.y = this.y+.5;
+		this.y = this.y+this.yspeed;
 	}
 
 	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
@@ -107,6 +108,12 @@ class Ball {
         }
         else if(this.x == 500){
           this.speed = -this.speed
+        }
+        else if(this.y == 0){
+          this.yspeed = -this.yspeed
+        }
+        else if(this.y == 400){
+          this.yspeed = -this.yspeed
         }
   	}
 
