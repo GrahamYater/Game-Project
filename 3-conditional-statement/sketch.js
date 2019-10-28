@@ -102,8 +102,8 @@ class Ball {
     		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
       			this.speed = -this.speed;
     		}
-        else if(this.x == 0){
-          this.speed = -this.speed
+        else if(this.x == 3){
+          this.speed *=-1
         }
         else if(this.x == 500){
           this.speed = -this.speed
